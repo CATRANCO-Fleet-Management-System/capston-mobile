@@ -1,28 +1,47 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // For navigation
-import { LinearGradient } from 'expo-linear-gradient'; // Import LinearGradient
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const settingsOptions = [
+  { icon: 'person-outline', label: 'My Account', key: 'account' },
+  { icon: 'information-circle-outline', label: 'About Us', key: 'about' },
+  { icon: 'document-outline', label: 'Terms and Conditions', key: 'terms' },
+  { icon: 'lock-closed-outline', label: 'Privacy Statement', key: 'privacy' },
+  { icon: 'log-out-outline', label: 'Logout', key: 'logout' }, // New Logout item
+];
 
 export default function SettingsScreen() {
   const navigation = useNavigation();
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.replace('Login')}>
-          <Text className="mr-2 text-blue-700 px-2 py-1 border border-blue-700 rounded-md">Logout</Text>
-        </TouchableOpacity>
-      ),
-    });
-  }, [navigation]);
+  const handlePress = (key) => {
+   if (key === 'account') {
+      navigation.navigate('EditAccount'); // Navigate to EditAccountScreen
+    } else if (key === 'logout') {
+      navigation.replace('Login');
+    }
+    // Add other navigation options here if needed
+  };
 
   return (
     <LinearGradient
-      colors={['#f9fbff', '#ecfae6', '#c5d5f9', '#9a92ff']}  // Gradient colors
-      className="flex-1"  // Apply the gradient style using NativeWind
+      colors={['#f9fbff', '#ecfae6', '#c5d5f9', '#9a92ff']}
+      className="flex-1"
     >
       <View className="flex-1 justify-center items-center">
-        <Text>Settings Screen??!</Text>
+        <View className="w-4/5 h-2/3 border border-gray-400 rounded-md bg-white">
+          <FlatList
+            data={settingsOptions}
+            keyExtractor={(item) => item.key}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => handlePress(item.key)} className="flex-row items-center p-4 border-b border-gray-200">
+                <Ionicons name={item.icon} size={24} color="gray" />
+                <Text className="ml-4 text-gray-700">{item.label}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       </View>
     </LinearGradient>
   );

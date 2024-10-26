@@ -10,9 +10,12 @@ export default function HomeScreen() {
     >
       {/* Configure StatusBar */}
       <StatusBar translucent={true} barStyle="dark-content" backgroundColor="transparent" />
-        <View className="w-4/5 h-1/3 border border-gray-400 rounded-md bg-white justify-center items-center">
-        <Text className="text-gray-600">Map will be placed here</Text>
+       <View className='flex-1 justify-center items-center'>
+         <View className="w-4/5 h-1/3 border border-gray-400 rounded-md bg-white justify-center items-center">
+         <Text className="text-gray-600">Map will be placed here</Text>
+         </View>
         </View>
     </LinearGradient>
+
   );
 }

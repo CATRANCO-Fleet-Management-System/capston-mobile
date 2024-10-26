@@ -13,7 +13,7 @@ export default function DispatchScreen() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === 'Home') {
+          if (route.name === 'Dashboard') {
             iconName = focused ? 'bus' : 'bus-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
@@ -31,7 +31,7 @@ export default function DispatchScreen() {
          },
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} 
+      <Tab.Screen name="Dashboard" component={HomeScreen} 
        options={{
     headerTransparent: true, // Make the header transparent
        }}
