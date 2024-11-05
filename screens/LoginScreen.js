@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StatusBar, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, StatusBar, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+
+const { width, height } = Dimensions.get('window');
 
 const App = () => {
   
@@ -19,11 +21,11 @@ const App = () => {
         colors={['#f9fbff', '#ecfae6', '#c5d5f9', '#9a92ff']}  // Updated gradient colors
         style={{ flex: 1 }}
       >
-        {/* Background Image */}
+       
      
         {/* Logo */}
         <View className="flex-row justify-around w-full absolute">
-          <Image className="h-[360] w-[284]" resizeMode='contain' source={require('../assets/images/logo.png')} />
+          <Image style={{ height: height * 0.3, width: width * 0.9 }} resizeMode='contain' source={require('../assets/images/logo.png')} />
         </View>
       
         {/* Fillup Form */}
@@ -43,14 +45,15 @@ const App = () => {
             </View>
 
             {/* Login Button */}
-            <View className="w-full">
-              <TouchableOpacity className="mt-8 h-12 w-full text-white text-xl font-bold">
+            <View style={{ }}>
+              <TouchableOpacity className="mt-8 h-12 w-full text-white text-xl font-bold"
+                style={{ width: '100%', height: height * 0.075, overflow: 'hidden' }} 
+              >
                 <LinearGradient
                   colors={['#3b82f6', '#ef4444']}  // Gradient for the Login button
                   start={[0, 0]} end={[1, 0]}
-                  className="flex-1 justify-center rounded-2xl"
-                >
-                  <Text className="text-xl font-bold text-white text-center">Login</Text>
+                  className="flex-1 justify-center rounded-2xl">
+                  <Text style={{ fontSize: width * 0.03 }} className="text-xl font-bold text-white text-center">Login</Text>
                 </LinearGradient>
               </TouchableOpacity>
             </View>
@@ -61,7 +64,7 @@ const App = () => {
                 className="w-full border border-blue-600 justify-center items-center rounded-2xl py-2"
                 onPress={() => navigation.navigate('Signup')}
               >
-                <Text className="text-center text-blue-600">Create Account</Text>
+                <Text style={{ fontSize: width * 0.04 }} className="text-center text-blue-600">Create Account</Text>
               </TouchableOpacity>
             </View>
 
@@ -71,7 +74,7 @@ const App = () => {
                 className="w-full border border-blue-600 justify-center items-center rounded-2xl py-2"
                 onPress={() => navigation.navigate('Home')}
               >
-                <Text className="text-center text-blue-600">Test Button</Text>
+                <Text style={{ fontSize: width * 0.04 }} className="text-center text-blue-600">Test Button</Text>
               </TouchableOpacity>
             </View>
           </View>

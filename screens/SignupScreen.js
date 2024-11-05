@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StatusBar, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, Image, StatusBar, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+
+const { width, height } = Dimensions.get('window');
 
 const App = () => {
   
@@ -22,7 +24,7 @@ const App = () => {
         {/* Scrollable Form */}
         <ScrollView
           className="flex-1"
-          contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 20, paddingTop: 40 }} // Adjust padding for space above
+          contentContainerStyle={{ paddingHorizontal: width * 0.08, paddingBottom: height * 0.05, paddingTop: height * 0.05 }} // Adjust padding for space above
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"  // Ensures taps outside the input fields work properly
         >

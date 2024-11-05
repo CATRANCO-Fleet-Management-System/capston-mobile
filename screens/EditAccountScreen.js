@@ -61,7 +61,7 @@ const App = () => {
             <View className="w-full">
               <TouchableOpacity className="mt-8 h-12 w-full flex-1 justify-center rounded-2xl bg-blue-500">
               
-                  <Text className="text-xl font-bold text-white text-center">Create Account</Text>
+                  <Text className="text-xl font-bold text-white text-center">Save Edit</Text>
                
               </TouchableOpacity>
             </View>

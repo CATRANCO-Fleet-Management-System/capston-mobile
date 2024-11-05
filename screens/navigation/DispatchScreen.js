@@ -4,6 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from '../HomeScreen'; // Import HomeScreen
 import SettingsScreen from '../SettingsScreen'; // Import SettingsScreen
+import { Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window'); 
 
 const Tab = createBottomTabNavigator();
 
@@ -25,8 +28,9 @@ export default function DispatchScreen() {
          tabBarStyle: { 
           borderTopLeftRadius: 20,borderTopRightRadius: 20, 
           position: 'absolute',       
-          left: 10,                  
-          right: 10,                                 
+          left: width * 0.03,                  
+          right: width *0.03, 
+          height: height *0.07,                                
           backgroundColor: 'white',   
          },
       })}
